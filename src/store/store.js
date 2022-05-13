@@ -21,15 +21,22 @@ export const store = new Vuex.Store({
   state: {
     todoItems: storage.fetch(),
   },
+  getters:{
+    storedTodoItems(state) {
+      return state.todoItems;
+    }
+  },
   mutations: {
     addOneItem(state, todoItem) {
       const obj = { completed: false, item: todoItem };
       localStorage.setItem(todoItem, JSON.stringify(obj));
       state.todoItems.push(obj);
     },
-    removeOneItem(state, todoItem) {
-      localStorage.removeItem(todoItem.item);
-      state.todoItems.splice(todoItem.index, 1);
+    removeOneItem(state, payload) {
+      console.log(state)
+      console.log(payload)
+      localStorage.removeItem(payload.todoItem.item);
+      state.todoItems.splice(payload.index, 1);
     },
     toggleOneItem(state, payload) {
       state.todoItems[payload.index].completed =
