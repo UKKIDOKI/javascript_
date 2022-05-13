@@ -10,7 +10,7 @@ import {mapMutations} from 'vuex'
 export default {
   methods: {
     ...mapMutations({
-      clearTodo : 'clearAllItems'
+      clearTodo: 'clearAllItems'
     })
     // clearTodo() {
     //   // this.$emit("clearAll");
@@ -30,6 +30,7 @@ export default {
   border-radius: 5px;
   margin: 0 auto;
 }
+
 .clearAllBtn {
   color: #e20303;
   display: block;
